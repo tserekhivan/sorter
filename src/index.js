@@ -1,30 +1,46 @@
+'use strict';
+
+const COMPARTATOR = (left, right) => left - right;
+
 class Sorter {
   constructor() {
+    this.arr = [];
+    this.compartator = COMPARTATOR;
     // your implementation
   }
 
   add(element) {
-    // your implementation
+    this.arr.push(element);
   }
 
   at(index) {
-    // your implementation
+    return this.arr[index];
   }
 
   get length() {
-    // your implementation
+    return this.arr.length;
   }
 
   toArray() {
-    // your implementation
+    return this.arr;
   }
 
   sort(indices) {
-    // your implementation
+      indices.sort();
+      let tmp;
+      for (let i = 0; i < indices.length; i++) {
+        for (let j = i+1; j < indices.length; j++) {
+           if (this.compartator(this.arr[indices[i]], this.arr[indices[j]]) >= 0) {
+             tmp = this.arr[indices[i]];
+             this.arr[indices[i]] = this.arr[indices[j]];
+             this.arr[indices[j]] = tmp;
+           }
+          }
+        }
   }
 
   setComparator(compareFunction) {
-    // your implementation
+    this.compartator = compareFunction;
   }
 }
 

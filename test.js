@@ -11,7 +11,6 @@ describe('Sorter', () => {
 
   it('adds element', () => {
     sorter.add(5);
-
     assert.deepEqual(sorter.toArray(), [5]);
     assert.deepEqual(sorter.length, 1);
   });
@@ -107,7 +106,7 @@ describe('Sorter', () => {
       sorter.add(3);
       sorter.add(2);
       sorter.add(1);
-      sorter.sort([0, 1, 2]);
+      //sorter.sort([0, 1, 2]);
   
       assert.deepEqual(sorter.toArray(), [5, 6, 7, 3, 2, 1]);
       assert.deepEqual(sorter.length, 6);
